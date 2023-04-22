@@ -55,7 +55,9 @@ public class PronosticoDeportivo {
             }
             participantes.listarPronosticosPorParticipante(opcion);
             
-            participantes.listarParticipantePorPuntaje(opcion);
+            participantes.listarParticipantesPorPuntaje(opcion);
+
+            participantes.listarParticipantesPorPuntajeOrdenados(opcion);
             
             // System.out.println(participantes.listar());
         

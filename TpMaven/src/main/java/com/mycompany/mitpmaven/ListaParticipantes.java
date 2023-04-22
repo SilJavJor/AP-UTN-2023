@@ -253,10 +253,10 @@ public class ListaParticipantes {
     }
 
     //
-    public void listarParticipantePorPuntaje(int opcion) {
+    public void listarParticipantesPorPuntaje(int opcion) {
         switch (opcion) {
             case 1 :
-                //listadoParticipantePorPuntajeEstandar();  // Listado para carga de archivos
+                listadoParticipantesPorPuntajeEstandar();  // Listado para carga de archivos
                 break;
             case 2 :
                 listadoParticipantesPorPuntajeTabla();   // Listado para carga de DB
@@ -269,11 +269,28 @@ public class ListaParticipantes {
     }
 
     //
+    public void listadoParticipantesPorPuntajeEstandar() {
+        int puntaje = 0;
+
+        for (Participante participante : this.getParticipantes()) {
+            //at.addRow(participante.getNombre(),participante.getPuntaje());
+            puntaje += participante.getPuntaje();
+            //at.addRow(participante.getNombre(),puntaje);
+            //participante.cargarPronosticos(opcion, equipos, partidos);
+        }
+        
+        System.out.println(puntaje);
+        System.out.println();
+        System.out.println();
+    }
+    
+    //
     public void listadoParticipantesPorPuntajeTabla() {
         //SystemTextTerminal systerm = new SystemTextTerminal();
         //TextIO textIO = new TextIO (systerm);
         //TextTerminal terminal = textIO.getTextTerminal();
-        
+        int puntaje = 0;
+
         AsciiTable at = new AsciiTable();
         at.addRule();
         at.addRow("LISTADO DE PUNTAJES","");
@@ -281,15 +298,13 @@ public class ListaParticipantes {
         at.addRow("Participante","Puntaje");
         at.addRule();
         
+
         for (Participante participante : this.getParticipantes()) {
-            at.addRow(participante.getNombre(),participante.getPuntaje());
-              //participante.cargarPronosticos(opcion, equipos, partidos);
-        }        /*
-        for (Participante participante : participantes) {
-            at.addRow(participante.getIdParticipante(), 
-                    participante.getNombre());
-        }           
-        */
+            //at.addRow(participante.getNombre(),participante.getPuntaje());
+            puntaje += participante.getPuntaje();
+            at.addRow(participante.getNombre(),puntaje);
+            //participante.cargarPronosticos(opcion, equipos, partidos);
+        }
         
         at.addRule();
 
@@ -308,13 +323,13 @@ public class ListaParticipantes {
     }
     
     //
-    public void listarParticipantePorPuntajeOrdenado(int opcion) {
+    public void listarParticipantesPorPuntajeOrdenados(int opcion) {
         switch (opcion) {
             case 1 :
-                listadoPronosticosPorParticipanteEstandar();  // Listado para carga de archivos
+                //listadoPronosticosPorParticipanteOrdenadosEstandar();  // Listado para carga de archivos
                 break;
             case 2 :
-                listadoPronosticosPorParticipanteTabla();   // Listado para carga de DB
+                listadoParticipantesPorPuntajeOrdenadosTabla();   // Listado para carga de DB
                 break;
             default :
                 System.out.println();
@@ -323,6 +338,44 @@ public class ListaParticipantes {
         }
     }
 
+    //
+    public void listadoParticipantesPorPuntajeOrdenadosTabla() {
+        //SystemTextTerminal systerm = new SystemTextTerminal();
+        //TextIO textIO = new TextIO (systerm);
+        //TextTerminal terminal = textIO.getTextTerminal();
+        int puntaje = 0;
+
+        AsciiTable at = new AsciiTable();
+        at.addRule();
+        at.addRow("LISTADO DE PUNTAJES","(ORDENADOS POR PUNTAJE)");
+        at.addRule();
+        at.addRow("Participante","Puntaje");
+        at.addRule();
+        
+
+        for (Participante participante : this.getParticipantes()) {
+            //at.addRow(participante.getNombre(),participante.getPuntaje());
+            puntaje += participante.getPuntaje();
+            at.addRow(participante.getNombre(),puntaje);
+            //participante.cargarPronosticos(opcion, equipos, partidos);
+        }
+        
+        at.addRule();
+
+        //String rend = at.render();
+        //terminal.print (rend);
+        
+        at.getContext().setGrid(A7_Grids.minusBarPlus());
+        //at.getContext().setGrid(A7_Grids.minusBarPlusEquals());
+
+        at.setPaddingLeftRight(1);
+        
+        System.out.println(at.render(90));
+
+        System.out.println();
+        System.out.println();
+    }
+    
     // Seleccion de la carga de datos
     public void cargaDeDatos(int opcion) {
         switch (opcion) {

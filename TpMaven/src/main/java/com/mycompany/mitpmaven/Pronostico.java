@@ -84,7 +84,10 @@ public class Pronostico {
         // Consulta el resultado del partido para el equipo
         char resultado = this.partido.getResultado(this.equipo);
         // Ahora vemos si el resultado coincide con el pronostico
-        if (resultado == this.getResultado()){
+        char otroResultado = this.getResultado();
+        
+//        if (resultado == this.getResultado()){
+        if (resultado == otroResultado){
             // Si coincide acerte al pronostico se retorna 1
             return 1;
         } else {
