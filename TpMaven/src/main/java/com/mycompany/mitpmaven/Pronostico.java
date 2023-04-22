@@ -75,7 +75,8 @@ public class Pronostico {
     @Override
     public String toString() {
         // return "Pronostico : " + this.getPartido();
-        return "Pronostico : " + this.getPartido().toString();
+        //return "Pronostico : " + this.getPartido().toString();
+        return "Pronostico : " + this.getPartido().toString() + System.lineSeparator();
     }
     
     // Metodos Especificos

@@ -11,6 +11,7 @@ import static com.mycompany.mitpmaven.BaseDeDatos.cerrarConexion;
 import static com.mycompany.mitpmaven.BaseDeDatos.cerrarSentencia;
 import static com.mycompany.mitpmaven.BaseDeDatos.crearSentencia;
 import de.vandermeer.asciitable.AsciiTable;
+import de.vandermeer.asciitable.CWC_LongestLine;
 import de.vandermeer.asciitable.CWC_LongestWord;
 import de.vandermeer.asciitable.CWC_LongestWordMax;
 import de.vandermeer.asciitable.CWC_LongestWordMin;
@@ -152,17 +153,17 @@ class ListaPartidos {
 
         //String rend = at.render();
         //terminal.print(rend);
-
+        
         at.getContext().setGrid(A7_Grids.minusBarPlus());
         //at.getContext().setGrid(A7_Grids.minusBarPlusEquals());
 
-        at.setPaddingLeftRight(1);
+        //at.setPaddingLeftRight(1);
         
         //at.getRenderer().setCWC(new CWC_LongestWord());
         //at.getRenderer().setCWC(new CWC_LongestWordMax(new int[]{4,-1}));
         //at.getRenderer().setCWC(new CWC_LongestWordMin(new int[]{-1,30}));
         
-        System.out.println(at.render(160));
+        System.out.println(at.render(195));
         //System.out.println(at.render());
 
         System.out.println();

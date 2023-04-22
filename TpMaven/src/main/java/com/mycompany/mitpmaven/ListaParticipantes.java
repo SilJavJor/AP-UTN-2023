@@ -170,19 +170,19 @@ public class ListaParticipantes {
 
         at.setPaddingLeftRight(1);
         
-        System.out.println(at.render(80));
+        System.out.println(at.render(90));
 
         System.out.println();
         System.out.println();
     }
     
-    public void listarPronosticosPorParticipantes(int opcion) {
+    public void listarPronosticosPorParticipante(int opcion) {
         switch (opcion) {
             case 1 :
-                listadoPronosticosParticipanteEstandar();  // Listado para carga de archivos
+                listadoPronosticosPorParticipanteEstandar();  // Listado para carga de archivos
                 break;
             case 2 :
-                //listadoParticipantesPronosticosTabla();   // Listado para carga de DB
+                listadoPronosticosPorParticipanteTabla();   // Listado para carga de DB
                 break;
             default :
                 System.out.println();
@@ -192,11 +192,13 @@ public class ListaParticipantes {
     }
 
     //
-    private void listadoPronosticosParticipanteEstandar() {
+    private void listadoPronosticosPorParticipanteEstandar() {
         String listado = "";
 
+        listado += System.lineSeparator();
+        listado += "Los pronosticos \t" + System.lineSeparator(); 
+
         for (Participante participante : participantes) {
-            listado += System.lineSeparator();
             listado += "Para el participante : \t" + 
                     this.getParticipante(participante.getIdParticipante()).getNombre() + 
                     System.lineSeparator();
@@ -204,33 +206,47 @@ public class ListaParticipantes {
         
             //listado += this.getParticipante(participante.getIdParticipante()).listaPronosticos() + 
             //         System.lineSeparator();
-            listado += participante.listaPronosticos() + 
-                     System.lineSeparator();
+            listado += participante.listaPronosticos() + System.lineSeparator();
+            listado += System.lineSeparator();
         }           
  
         System.out.println(listado);
     }
 
-    public void listadoPronosticosParticipanteTabla() {
-        SystemTextTerminal systerm = new SystemTextTerminal();
-        TextIO textIO = new TextIO (systerm);
-        TextTerminal terminal = textIO.getTextTerminal();
+    public void listadoPronosticosPorParticipanteTabla() {
+        //SystemTextTerminal systerm = new SystemTextTerminal();
+        //TextIO textIO = new TextIO (systerm);
+        //TextTerminal terminal = textIO.getTextTerminal();
+        
         AsciiTable at = new AsciiTable();
         at.addRule();
-        at.addRow("LISTADO DE PARTICIPANTES","");
+        at.addRow("LISTADO DE PRONOSTICOS","","","","");
         at.addRule();
-        at.addRow("Número","Nombre");
+        at.addRow("Participante","Partido","Equipo","Pronostico","Puntaje");
         at.addRule();
-
+        
+        for (Participante participante : this.getParticipantes()) {
+            at.addRow(participante.getNombre(),"","","","");
+              //participante.cargarPronosticos(opcion, equipos, partidos);
+        }        /*
         for (Participante participante : participantes) {
             at.addRow(participante.getIdParticipante(), 
                     participante.getNombre());
         }           
-
+        */
+        
         at.addRule();
-        String rend = at.render();
-        terminal.print (rend);
-        System.out.println();
+
+        //String rend = at.render();
+        //terminal.print (rend);
+        
+        at.getContext().setGrid(A7_Grids.minusBarPlus());
+        //at.getContext().setGrid(A7_Grids.minusBarPlusEquals());
+
+        at.setPaddingLeftRight(1);
+        
+        System.out.println(at.render(90));
+
         System.out.println();
         System.out.println();
     }

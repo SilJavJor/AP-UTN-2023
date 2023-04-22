@@ -50,10 +50,10 @@ public class PronosticoDeportivo {
 
             // Una vez cargados los participantes, para cada uno de ellos
             // cargar sus pronósticos
-            //for (Participante participante : participantes.getParticipantes()) {
-            //    participante.cargarPronosticos(opcion, equipos, partidos);
-            //}
-            //participantes.listarPronosticosPorParticipantes(opcion);
+            for (Participante participante : participantes.getParticipantes()) {
+                participante.cargarPronosticos(opcion, equipos, partidos);
+            }
+            participantes.listarPronosticosPorParticipante(opcion);
             
             // System.out.println(participantes.listar());
         

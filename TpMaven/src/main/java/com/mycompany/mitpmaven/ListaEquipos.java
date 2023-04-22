@@ -152,7 +152,7 @@ public class ListaEquipos {
 
         at.setPaddingLeftRight(1);
         
-        System.out.println(at.render(80));
+        System.out.println(at.render(90));
 
         System.out.println();
         System.out.println();

@@ -192,7 +192,7 @@ public class ListaPronosticos {
                 
                 // Crea el objeto en memoria
                 Pronostico pronostico = new Pronostico(rs.getInt("idPronostico"),
-                                  equipo, partido, rs.getString("resultado").charAt(1)
+                                  equipo, partido, rs.getString("resultado").charAt(0)
                 );
 
                 // llama al metodo add para grabar el equipo en la lista en memoria
