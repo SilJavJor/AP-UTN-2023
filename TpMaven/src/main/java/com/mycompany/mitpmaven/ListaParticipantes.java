@@ -213,6 +213,7 @@ public class ListaParticipantes {
         System.out.println(listado);
     }
 
+    //
     public void listadoPronosticosPorParticipanteTabla() {
         //SystemTextTerminal systerm = new SystemTextTerminal();
         //TextIO textIO = new TextIO (systerm);
@@ -249,6 +250,77 @@ public class ListaParticipantes {
 
         System.out.println();
         System.out.println();
+    }
+
+    //
+    public void listarParticipantePorPuntaje(int opcion) {
+        switch (opcion) {
+            case 1 :
+                //listadoParticipantePorPuntajeEstandar();  // Listado para carga de archivos
+                break;
+            case 2 :
+                listadoParticipantesPorPuntajeTabla();   // Listado para carga de DB
+                break;
+            default :
+                System.out.println();
+                System.out.println("Opción no implementada.");
+                System.out.println();
+        }
+    }
+
+    //
+    public void listadoParticipantesPorPuntajeTabla() {
+        //SystemTextTerminal systerm = new SystemTextTerminal();
+        //TextIO textIO = new TextIO (systerm);
+        //TextTerminal terminal = textIO.getTextTerminal();
+        
+        AsciiTable at = new AsciiTable();
+        at.addRule();
+        at.addRow("LISTADO DE PUNTAJES","");
+        at.addRule();
+        at.addRow("Participante","Puntaje");
+        at.addRule();
+        
+        for (Participante participante : this.getParticipantes()) {
+            at.addRow(participante.getNombre(),participante.getPuntaje());
+              //participante.cargarPronosticos(opcion, equipos, partidos);
+        }        /*
+        for (Participante participante : participantes) {
+            at.addRow(participante.getIdParticipante(), 
+                    participante.getNombre());
+        }           
+        */
+        
+        at.addRule();
+
+        //String rend = at.render();
+        //terminal.print (rend);
+        
+        at.getContext().setGrid(A7_Grids.minusBarPlus());
+        //at.getContext().setGrid(A7_Grids.minusBarPlusEquals());
+
+        at.setPaddingLeftRight(1);
+        
+        System.out.println(at.render(90));
+
+        System.out.println();
+        System.out.println();
+    }
+    
+    //
+    public void listarParticipantePorPuntajeOrdenado(int opcion) {
+        switch (opcion) {
+            case 1 :
+                listadoPronosticosPorParticipanteEstandar();  // Listado para carga de archivos
+                break;
+            case 2 :
+                listadoPronosticosPorParticipanteTabla();   // Listado para carga de DB
+                break;
+            default :
+                System.out.println();
+                System.out.println("Opción no implementada.");
+                System.out.println();
+        }
     }
 
     // Seleccion de la carga de datos

@@ -55,6 +55,8 @@ public class PronosticoDeportivo {
             }
             participantes.listarPronosticosPorParticipante(opcion);
             
+            participantes.listarParticipantePorPuntaje(opcion);
+            
             // System.out.println(participantes.listar());
         
             // agregar y/o modificar el codigo que quieran
