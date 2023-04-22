@@ -130,6 +130,8 @@ class ListaPartidos {
         } 
         
         System.out.println(listado);
+        System.out.println();
+        System.out.println();
     }
     
     private void listadoTabla() {

@@ -81,13 +81,14 @@ public class Pronostico {
     
     // Metodos Especificos
     public int getPuntaje(){
+        char resultadoPronostico = this.getResultado();
         // Consulta el resultado del partido para el equipo
-        char resultado = this.partido.getResultado(this.equipo);
-        // Ahora vemos si el resultado coincide con el pronostico
-        char otroResultado = this.getResultado();
+        char resultadoPartido = this.partido.getResultado(this.equipo);
         
+        // Ahora vemos si el resultado coincide con el pronostico
 //        if (resultado == this.getResultado()){
-        if (resultado == otroResultado){
+//        if (resultado == otroResultado){
+        if (resultadoPronostico == resultadoPartido){
             // Si coincide acerte al pronostico se retorna 1
             return 1;
         } else {

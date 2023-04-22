@@ -90,6 +90,8 @@ public class ListaPronosticos {
         }           
  
         System.out.println(listado);
+        System.out.println();
+        System.out.println();
     }
     
     // Cargar desde el archivo, filtrando solamente aquellos pronósticos

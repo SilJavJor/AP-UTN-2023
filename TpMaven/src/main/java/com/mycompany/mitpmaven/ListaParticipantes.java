@@ -196,7 +196,7 @@ public class ListaParticipantes {
         String listado = "";
 
         listado += System.lineSeparator();
-        listado += "Los pronosticos \t" + System.lineSeparator(); 
+        listado += "Los pronosticos cargados son : \t" + System.lineSeparator(); 
 
         for (Participante participante : participantes) {
             listado += "Para el participante : \t" + 
@@ -271,15 +271,18 @@ public class ListaParticipantes {
     //
     public void listadoParticipantesPorPuntajeEstandar() {
         int puntaje = 0;
+        String listado = "";
 
+        listado += System.lineSeparator();
+        listado += "Los puntajes por participante son : " + System.lineSeparator();
+        listado += "-----------------------------------" + System.lineSeparator();
+        
         for (Participante participante : this.getParticipantes()) {
-            //at.addRow(participante.getNombre(),participante.getPuntaje());
             puntaje += participante.getPuntaje();
-            //at.addRow(participante.getNombre(),puntaje);
-            //participante.cargarPronosticos(opcion, equipos, partidos);
+            listado += participante.getNombre() + "\t\t" + puntaje + System.lineSeparator();
         }
         
-        System.out.println(puntaje);
+        System.out.println(listado);
         System.out.println();
         System.out.println();
     }
@@ -298,7 +301,6 @@ public class ListaParticipantes {
         at.addRow("Participante","Puntaje");
         at.addRule();
         
-
         for (Participante participante : this.getParticipantes()) {
             //at.addRow(participante.getNombre(),participante.getPuntaje());
             puntaje += participante.getPuntaje();
@@ -323,13 +325,13 @@ public class ListaParticipantes {
     }
     
     //
-    public void listarParticipantesPorPuntajeOrdenados(int opcion) {
+    public void listarParticipantesOrdenadosPorPuntajes(int opcion) {
         switch (opcion) {
             case 1 :
-                //listadoPronosticosPorParticipanteOrdenadosEstandar();  // Listado para carga de archivos
+                //listadoParticipantesPorPuntajesOrdenadosEstandar();  // Listado para carga de archivos
                 break;
             case 2 :
-                listadoParticipantesPorPuntajeOrdenadosTabla();   // Listado para carga de DB
+                listadoParticipantesOrdenadosPorPuntajesTabla();   // Listado para carga de DB
                 break;
             default :
                 System.out.println();
@@ -339,7 +341,7 @@ public class ListaParticipantes {
     }
 
     //
-    public void listadoParticipantesPorPuntajeOrdenadosTabla() {
+    public void listadoParticipantesOrdenadosPorPuntajesTabla() {
         //SystemTextTerminal systerm = new SystemTextTerminal();
         //TextIO textIO = new TextIO (systerm);
         //TextTerminal terminal = textIO.getTextTerminal();
@@ -347,15 +349,17 @@ public class ListaParticipantes {
 
         AsciiTable at = new AsciiTable();
         at.addRule();
-        at.addRow("LISTADO DE PUNTAJES","(ORDENADOS POR PUNTAJE)");
+        at.addRow("LISTADO DE PUNTAJES","(ORDENADO POR PUNTAJE)");
         at.addRule();
         at.addRow("Participante","Puntaje");
         at.addRule();
         
 
+        //for (Participante participante : this.getParticipantes()) {
         for (Participante participante : this.getParticipantes()) {
             //at.addRow(participante.getNombre(),participante.getPuntaje());
             puntaje += participante.getPuntaje();
+            this.getOrdenadosPorPuntaje();
             at.addRow(participante.getNombre(),puntaje);
             //participante.cargarPronosticos(opcion, equipos, partidos);
         }
