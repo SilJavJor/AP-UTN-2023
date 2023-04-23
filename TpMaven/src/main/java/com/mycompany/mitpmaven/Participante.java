@@ -117,16 +117,18 @@ public class Participante implements Comparable<Participante> {
 
     //
     public String listaPronosticos() {
-        String listado = "";
+        //String listado = "";
 
         //for (Pronostico pronostico : this.getPronosticos()) {
-        //for (Pronostico pronostico : pronosticos.getPronosticos()) {
+        //for (Pronostico pronostico : this.pronosticos.getPronosticos()) {
         //    listado += this.pronosticos.getPronosticos().toString() + System.lineSeparator();
-            listado += this.pronosticos.getPronosticos().toString() + System.lineSeparator();
+        //     listado += this.pronosticos.getPronosticos().toString() + System.lineSeparator();
+        //    listado += this.pronosticos.toString() + System.lineSeparator();
         //}
         
         //listado += "- - - - - - - - - - - - - - - - - -"+ System.lineSeparator();
 
-        return listado;
+        //return listado;
+        return this.pronosticos.toString();
     }
 }

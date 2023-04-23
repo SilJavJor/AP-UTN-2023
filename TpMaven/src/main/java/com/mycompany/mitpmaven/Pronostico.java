@@ -87,7 +87,7 @@ public class Pronostico {
         
         // Ahora vemos si el resultado coincide con el pronostico
 //        if (resultado == this.getResultado()){
-//        if (resultado == otroResultado){
+
         if (resultadoPronostico == resultadoPartido){
             // Si coincide acerte al pronostico se retorna 1
             return 1;

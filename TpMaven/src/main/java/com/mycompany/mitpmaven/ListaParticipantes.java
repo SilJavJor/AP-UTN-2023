@@ -356,12 +356,18 @@ public class ListaParticipantes {
         
 
         //for (Participante participante : this.getParticipantes()) {
-        for (Participante participante : this.getParticipantes()) {
+        //for (Participante participante : this.getParticipantes()) {
+        for (Participante participante : this.getOrdenadosPorPuntaje()) {
+            //int puntaje = 0;
             //at.addRow(participante.getNombre(),participante.getPuntaje());
-            puntaje += participante.getPuntaje();
-            this.getOrdenadosPorPuntaje();
-            at.addRow(participante.getNombre(),puntaje);
+            //for (Participante participante1 : this.getOrdenadosPorPuntaje()) {
+            //puntaje += participante.getPuntaje();
+            //this.getOrdenadosPorPuntaje();
+            //at.addRow(participante.getNombre(),puntaje);
+            at.addRow(participante.getNombre(),participante.getPuntaje()
+            );
             //participante.cargarPronosticos(opcion, equipos, partidos);
+            //}
         }
         
         at.addRule();
@@ -489,6 +495,7 @@ public class ListaParticipantes {
         
         // Obtiene la lista ordenada de mayor a menor
         Collections.sort(listaOrdenada, Collections.reverseOrder());
+        //Collections.sort(listaOrdenada);
         
         return listaOrdenada;
     }

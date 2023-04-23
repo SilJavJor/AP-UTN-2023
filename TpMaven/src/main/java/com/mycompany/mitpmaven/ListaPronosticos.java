@@ -58,7 +58,13 @@ public class ListaPronosticos {
 
     @Override
     public String toString() {
-        return "ListaPronosticos = " + pronosticos + '}';
+        String listado = "";
+        
+        for (Pronostico pronostico : this.pronosticos) {
+            listado += pronostico.toString();
+        }
+        
+        return listado;
     }
 
     // 

@@ -56,4 +56,17 @@ public class Equipo {
     }
     
     // Metodos Especificos
+    public String dibujar(int caracteresMaximos) {
+        String id = padRight(String.valueOf(this.idEquipo), 5); 
+        String nombre = padRight(this.nombre, caracteresMaximos); 
+        String descripcion = padRight(this.descripcion, 10); 
+        
+        return id + nombre + descripcion;
+    }
+    
+    //
+    public static String padRight(String s, int n) {
+    
+        return String.format("%-" + n + "s", s);  
+    }
 }

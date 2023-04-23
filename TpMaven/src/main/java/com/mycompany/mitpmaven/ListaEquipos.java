@@ -119,11 +119,26 @@ public class ListaEquipos {
         listado += "Los equipos cargados son : " + System.lineSeparator();
         listado += "--------------------------" + System.lineSeparator();
         
+        int caracteresMaximos = this.cantidadCaracteresMaximos() + 2;
+        
         for (Equipo equipo: equipos) {
-            listado += equipo + System.lineSeparator();
+            listado += equipo.dibujar(caracteresMaximos) + System.lineSeparator();
         }           
         
         System.out.println(listado);
+    }
+    
+    //
+    private int cantidadCaracteresMaximos (){
+        int caracteres = 0;
+        
+        for (Equipo equipo: equipos) {
+            if (equipo.getNombre().length() > caracteres){
+                caracteres = equipo.getNombre().length();
+            }
+        }
+        
+        return caracteres;
     }
     
     private void listadoTabla() {
