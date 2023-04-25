@@ -9,15 +9,15 @@ package com.mycompany.tp.maven;
 */
 public class TpMaven {
 
-//    public static PronosticoDeportivo PRODE;
+    public static PronosticoDeportivo PRODE;
 
     public static void main(String[] args) {
         System.out.println ();
         System.out.println ("Sistema de simulación de pronósticos deportivos.");
         System.out.println ("Ejecutándose desde:" + System.getProperty("user.dir"));
         
-//        PRODE = new PronosticoDeportivo();
+        PRODE = new PronosticoDeportivo();
 
-//        PRODE.play();
+        PRODE.play();
     }
 }
