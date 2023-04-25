@@ -7,7 +7,6 @@ com\mycompany\mitpmaven\ListaPronosticos.class
 com\mycompany\mitpmaven\ListaParticipantes.class
 com\mycompany\mitpmaven\Participante.class
 com\mycompany\mitpmaven\StringsUtils.class
-com\mycompany\mitpmaven\TP.class
 com\mycompany\mitpmaven\Equipo.class
 com\mycompany\mitpmaven\PronosticoDeportivo.class
 com\mycompany\mitpmaven\Menu.class
