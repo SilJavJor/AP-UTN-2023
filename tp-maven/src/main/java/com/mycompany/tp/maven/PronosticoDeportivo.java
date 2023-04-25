@@ -1,7 +1,7 @@
 /*
 Para entrega 2
  */
-package com.mycompany.mitpmaven;
+package com.mycompany.tp.maven;
 
 /**
  *
